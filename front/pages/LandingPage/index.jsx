@@ -46,12 +46,17 @@ const LandingPage = () => {
 
   useEffect(async () => {
     if (state !== null) {
+
+      console.log('시작합니다 webrtc');
+
       await getMedia();
       makeConnection();
       setSocketStart('start');
     }
 
     if (socketState !== null) {
+      console.log('전송합시다 join_room')
+
       socket.emit('join_room', state);
     }
   });
