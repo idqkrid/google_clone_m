@@ -68,6 +68,12 @@ const config = {
     devMiddleware: { publicPath: '/dist/' },
     static: { directory: path.resolve(__dirname) },
   },
+
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
 };
 
 if (isDevelopment && config.plugins) {

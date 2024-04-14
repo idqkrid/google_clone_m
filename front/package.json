@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env webpack serve --env development",
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=production webpack serve"
   },
   "author": "ZeroCho",
   "license": "MIT",
