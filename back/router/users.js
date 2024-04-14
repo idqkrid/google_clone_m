@@ -9,18 +9,29 @@ const { auth } = require("./middlewares");
 router.get('/', async (req, res, next) => {
   let token = req.cookies.token;
 
+  console.log(token);
+
   try {
-    const decoded = jwt.verify(token, 'secretToken');
+    const decoded = jwt.verify(token, "secretToken");
 
-    //console.log(decoded)
+    console.log("데이터 정보");
+    console.log(decoded.userId);
+    console.log(token);
 
-    const user = await User.findOne({ "_id": decoded.userId, "token": token }).exec();
+    const user = await User.findOne({
+      _id: decoded.userId,
+      token: token,
+    }).exec();
 
+    console.log("유저 정보");
+    console.log(user);
 
     if (!user) {
-      return res.status(401).json({ isAuth: false, error: true, message: '인증에 실패했습니다.1' });
+      return res
+        .status(401)
+        .json({ isAuth: false, error: true, message: "인증에 실패했습니다.1" });
     }
-  
+
     req.user = user;
 
     res.status(200).json({
@@ -31,10 +42,12 @@ router.get('/', async (req, res, next) => {
       name: req.user.name,
       lastname: req.user.lastname,
       role: req.user.role,
-      image: req.user.image
-    })
+      image: req.user.image,
+    });
   } catch (err) {
-    return res.status(401).json({ isAuth: false, error: true, message: '인증에 실패했습니다.1' });
+    return res
+      .status(401)
+      .json({ isAuth: false, error: true, message: "인증에 실패했습니다.2" });
   }
 
 
