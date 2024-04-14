@@ -7,7 +7,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Header = () => {
-  const { data: userData, error: loginError, revalidate } = useSWR('http://43.201.8.123:3001/users', fetcher);
+  const { data: userData, error: loginError, revalidate } = useSWR('http://13.125.232.127:3001/users', fetcher);
 
   console.log(loginError);
 
@@ -15,7 +15,7 @@ const Header = () => {
     e.preventDefault();
     console.log('클릭!');
     axios
-      .get('http://43.201.8.123:3001/users/logout', {
+      .get('http://13.125.232.127:3001/users/logout', {
         withCredentials: true,
       })
       .then(() => {

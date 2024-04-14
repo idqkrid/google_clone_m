@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import useSWR from 'swr';
 
 const LogIn = () => {
-  const { data: userData, error, revalidate } = useSWR('http://43.201.8.123:3001/users', fetcher);
+  const { data: userData, error, revalidate } = useSWR('http://13.125.232.127:3001/users', fetcher);
   const [logInError, setLogInError] = useState(false);
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
@@ -20,7 +20,7 @@ const LogIn = () => {
 
       axios
         .post(
-          'http://43.201.8.123:3001/users/login',
+          'http://13.125.232.127:3001/users/login',
           { email, password },
           {
             withCredentials: true,

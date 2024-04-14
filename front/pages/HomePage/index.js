@@ -6,7 +6,7 @@ import fetcher from '../../utils/fetcher';
 import Header from '../../components/Header'
 
 const HomePage = () => {
-  const { data: userData, error: loginError, revalidate } = useSWR('http://43.201.8.123:3001/users', fetcher);
+  const { data: userData, error: loginError, revalidate } = useSWR('http://13.125.232.127:3001/users', fetcher);
   const [text, setText] = useState('');
 
   const handleChange = (event) => {

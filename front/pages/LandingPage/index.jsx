@@ -17,12 +17,12 @@ let roomId = '123';
 let myPeerConnection;
 let myDataChannel;
 
-const socket = io('http://43.201.8.123:3003', {
+const socket = io('http://13.125.232.127:3003', {
   transports: ['websocket'],
 });
 
 const LandingPage = () => {
-  const { data: userData, error, revalidate } = useSWR('http://43.201.8.123:3001/users', fetcher);
+  const { data: userData, error, revalidate } = useSWR('http://13.125.232.127:3001/users', fetcher);
 
   const { roomId } = useParams();
 

@@ -8,7 +8,7 @@ import useSWR from 'swr';
 
 
 const SignUp = () => {
-  const { data: userData } = useSWR('http://43.201.8.123:3001/users', fetcher);
+  const { data: userData } = useSWR('http://13.125.232.127:3001/users', fetcher);
   const [signUpError, setSignUpError] = useState(false);
   const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [mismatchError, setMismatchError] = useState(false);
@@ -44,7 +44,7 @@ const SignUp = () => {
         setSignUpSuccess(false);
 
         axios
-          .post('http://43.201.8.123:3001/users/regitsre', { name, email, password })
+          .post('http://13.125.232.127:3001/users/regitsre', { name, email, password })
           .then(() => {
             setSignUpSuccess(true);
           })

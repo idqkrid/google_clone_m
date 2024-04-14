@@ -7,12 +7,12 @@ import styled, { css } from 'styled-components';
 let roomName = '123';
 
 
-const socket = io('http://43.201.8.123:3004', {
+const socket = io('http://13.125.232.127:3004', {
   transports: ['websocket'],
 });
 
 const ChatSpaceComponents = () => {
-  const { data: userData, error, revalidate } = useSWR('http://43.201.8.123:3001/users', fetcher);
+  const { data: userData, error, revalidate } = useSWR('http://13.125.232.127:3001/users', fetcher);
   const [currentMessage, setCurrentMessage] = useState('');
   const [messageList, setMessageList] = useState([]);
   const fileInputRef = useRef(null);
